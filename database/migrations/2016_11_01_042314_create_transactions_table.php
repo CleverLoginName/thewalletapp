@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->float('amount');
+            $table->string('amount');
             $table->integer('transaction_category_id');
             $table->timestamps();
         });

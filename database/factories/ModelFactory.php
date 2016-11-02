@@ -22,3 +22,29 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\TransactionType::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->unique()->name,
+        'description' => $faker->sentence,
+    ];
+});
+
+
+$factory->define(App\TransactionCategory::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->unique()->name,
+        'description' => $faker->sentence,
+        'transaction_type_id' => $faker->numberBetween(1,10),
+    ];
+});
+
+$factory->define(App\Transaction::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->unique()->name,
+        'description' => $faker->sentence,
+        'transaction_category_id' => $faker->numberBetween(1,10),
+        'amount' => $faker->randomFloat(0,null),
+    ];
+});
