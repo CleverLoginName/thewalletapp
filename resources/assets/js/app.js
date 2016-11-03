@@ -14,7 +14,11 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('transaction', require('./components/Transaction.vue'));
+Vue.component('transaction-category', require('./components/TransactionCategory.vue'));
+Vue.component('transaction-type', require('./components/TransactionType.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components:['transaction'],
 });
