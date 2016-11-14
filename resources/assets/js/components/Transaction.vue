@@ -4,9 +4,11 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Example Component</div>
-
+                    <input v-model="search" @keydown="searchFor">
                     <div class="panel-body">
-                        I'm an new component!
+                        <ul>
+                            <li v-for="transaction in transactions">{{ transaction.name }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -20,10 +22,18 @@
     export default {
         mounted() {
               this.$http.get('api/transactions').then((response) => {
-                console.log(response);
+                this.transactions = response.data;//console.log(transactions);
               }, (response) => {
-                console.log(response);
+               this.transactions = response.data;//console.log(transactions);
               });
+        },
+    data:function(){
+        return {transactions:[],search:''}
+        },
+        methods:{
+            searchFor:function(){
+
+            }
         }
     }
 </script>

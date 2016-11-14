@@ -18,7 +18,8 @@ Vue.component('transaction', require('./components/Transaction.vue'));
 Vue.component('transaction-category', require('./components/TransactionCategory.vue'));
 Vue.component('transaction-type', require('./components/TransactionType.vue'));
 
+Vue.filter('searchFor', require('./filters/search.vue'));
+
 const app = new Vue({
     el: '#app',
-    components:['transaction'],
 });
